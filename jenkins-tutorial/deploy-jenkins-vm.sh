@@ -24,7 +24,7 @@ then
     az vm open-port --port 8080 --resource-group $resourceGroup --name $virtualMachine --priority 103
 
     # Use CustomScript extension to install NGINX.
-    az vm extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --vm-name $virtualMachine --resource-group $resourceGroup --settings '{"fileUris": ["https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/config-jenkins.sh"],"commandToExecute": "./config-jenkins.sh"}'
+    az vm extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --vm-name $virtualMachine --resource-group $resourceGroup --settings '{"fileUris": ["https://github.com/nivedita-atci/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/config-jenkins.sh"],"commandToExecute": "./config-jenkins.sh"}'
 
     # Get public IP
     ip=$(az vm list-ip-addresses --resource-group $resourceGroup --name $virtualMachine --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv)
